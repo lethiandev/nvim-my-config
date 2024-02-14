@@ -16,7 +16,7 @@ Plug('nvim-telescope/telescope-file-browser.nvim')
 Plug('natecraddock/workspaces.nvim')
 Plug('folke/trouble.nvim')
 Plug('lewis6991/gitsigns.nvim')
-Plug('prettier/vim-prettier', { ['do'] = 'yarn install --frozen-lockfile --production' })
+Plug('sbdchd/neoformat')
 Plug('akinsho/toggleterm.nvim', { tag = '*' })
 Plug('nvim-lualine/lualine.nvim')
 Plug('NeogitOrg/neogit')
@@ -136,10 +136,6 @@ require'workspaces'.setup {}
 -- Gitsigns Setup
 require'gitsigns'.setup {}
 
--- Prettier Setup
-vim.g['prettier#autoformat'] = 1
-vim.g['prettier#autoformat_require_pragma'] = 0
-
 -- Toggleterm Setup
 require'toggleterm'.setup {
   open_mapping = [[<C-\>]],
@@ -162,3 +158,10 @@ require'lualine'.setup {}
 -- Neogit Setup
 require'neogit'.setup {}
 
+-- Neoformat Setup
+vim.cmd([[
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+]])
