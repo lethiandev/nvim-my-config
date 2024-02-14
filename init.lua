@@ -143,7 +143,7 @@ vim.g['prettier#autoformat_require_pragma'] = 0
 -- Toggleterm Setup
 require'toggleterm'.setup {
   open_mapping = [[<C-\>]],
-  shell = [[C:/PROGRA~1/Git/bin/bash.exe --login -i]],
+  --shell = [[C:/PROGRA~1/Git/bin/bash.exe --login -i]],
 }
 
 function _G.set_terminal_keymaps()
