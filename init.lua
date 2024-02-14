@@ -127,12 +127,6 @@ require'telescope'.load_extension 'fzy_native'
 require'telescope'.load_extension 'file_browser'
 require'telescope'.load_extension 'workspaces'
 
-local builtin = require'telescope.builtin'
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { noremap = true })
-
 -- Workspaces Setup
 require'workspaces'.setup {}
 
@@ -168,3 +162,19 @@ augroup fmt
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 ]])
+
+-- Map key strokes
+local builtin = require'telescope.builtin'
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { noremap = true })
+
+vim.keymap.set('n', ']t', '<cmd>tabnext<CR>', {})
+vim.keymap.set('n', '[t', '<cmd>tabprevious<CR>', {})
+vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<CR>', {})
+vim.keymap.set('n', '<leader>td', '<cmd>bd<CR>', {})
+
+vim.keymap.set('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', {})
+vim.keymap.set('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {})
+vim.keymap.set('n', '<leader>dd', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
