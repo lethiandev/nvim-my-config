@@ -150,7 +150,7 @@ function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
-  vim.keymap.set('t', '<C-c>', [[:TermExec cmd='<C-c>'<CR>]], opts)
+  vim.keymap.set('t', '<C-c>', [[:TermExec cmd=<C-c><CR>]], opts)
   vim.opt_local.scrolloff = 0
 end
 
