@@ -20,6 +20,7 @@ Plug('sbdchd/neoformat')
 Plug('akinsho/toggleterm.nvim', { tag = '*' })
 Plug('nvim-lualine/lualine.nvim')
 Plug('NeogitOrg/neogit')
+Plug('nvimdev/lspsaga.nvim')
 vim.call('plug#end')
 
 -- Editor Settings
@@ -118,6 +119,8 @@ require'nvim-treesitter.configs'.setup {
     "lua",
     "bash",
     "gitignore",
+    "markdown",
+    "markdown_inline",
   },
 }
 
@@ -163,6 +166,22 @@ augroup fmt
 augroup END
 ]])
 
+-- Lspsaga Setup
+require'lspsaga'.setup {
+  code_action = {
+    num_shortcut = false,
+    show_server_name = true,
+    extend_gitsigns = true,
+  },
+  lightbulb = {
+    virtual_text = false,
+  },
+  diagnostic = {
+    show_layout = 'normal',
+    jump_num_shortcut = false,
+  },
+}
+
 -- Map key strokes
 local builtin = require'telescope.builtin'
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -175,6 +194,6 @@ vim.keymap.set('n', '[t', '<cmd>tabprevious<CR>', {})
 vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<CR>', {})
 vim.keymap.set('n', '<leader>td', '<cmd>bd<CR>', {})
 
-vim.keymap.set('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', {})
-vim.keymap.set('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {})
+vim.keymap.set('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', {})
+vim.keymap.set('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', {})
 vim.keymap.set('n', '<leader>dd', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
