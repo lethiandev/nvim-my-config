@@ -21,6 +21,7 @@ Plug('akinsho/toggleterm.nvim', { tag = '*' })
 Plug('nvim-lualine/lualine.nvim')
 Plug('NeogitOrg/neogit')
 Plug('nvimdev/lspsaga.nvim')
+Plug('lukas-reineke/indent-blankline.nvim')
 vim.call('plug#end')
 
 -- Editor Settings
@@ -198,3 +199,6 @@ vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', {})
 vim.keymap.set('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', {})
 vim.keymap.set('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', {})
 vim.keymap.set('n', '<leader>dd', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
+
+-- Indent Blankline Setup
+require'ibl'.setup {}
