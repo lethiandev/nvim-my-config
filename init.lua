@@ -174,7 +174,7 @@ require'lspsaga'.setup {
     extend_gitsigns = true,
   },
   lightbulb = {
-    virtual_text = false,
+    enable = false,
   },
   diagnostic = {
     show_layout = 'normal',
@@ -194,6 +194,7 @@ vim.keymap.set('n', '[t', '<cmd>tabprevious<CR>', {})
 vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<CR>', {})
 vim.keymap.set('n', '<leader>td', '<cmd>bd<CR>', {})
 
+vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', {})
 vim.keymap.set('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', {})
 vim.keymap.set('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', {})
 vim.keymap.set('n', '<leader>dd', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
