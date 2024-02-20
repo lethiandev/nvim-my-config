@@ -149,6 +149,7 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
   vim.keymap.set('t', '<C-c>', [[:TermExec cmd=<C-c><CR>]], opts)
   vim.opt_local.scrolloff = 0
+  vim.opt_local.spell = false
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
