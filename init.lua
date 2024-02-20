@@ -189,6 +189,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>fc', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { noremap = true })
 
 vim.keymap.set('n', ']t', '<cmd>tabnext<CR>', {})
 vim.keymap.set('n', '[t', '<cmd>tabprevious<CR>', {})
