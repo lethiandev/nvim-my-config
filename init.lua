@@ -170,7 +170,7 @@ augroup END
 -- Lspsaga Setup
 require'lspsaga'.setup {
   code_action = {
-    num_shortcut = false,
+    num_shortcut = true,
     show_server_name = true,
     extend_gitsigns = true,
   },
@@ -179,7 +179,7 @@ require'lspsaga'.setup {
   },
   diagnostic = {
     show_layout = 'normal',
-    jump_num_shortcut = false,
+    jump_num_shortcut = true,
   },
 }
 
